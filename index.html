@@ -19,7 +19,7 @@
           extend: {
             colors: {
               skyBlue: "#1E2358",
-              skyAccent: "#FFB800",
+              skyAccent: "#FDCC02",
               skyCyan: "#06B6D4",
               gray50: "#EDEEF1",
               primary800: "#272D70",
@@ -65,16 +65,15 @@
     ></header>
 
     <section
-      class="h-[540px] relative flex items-center justify-center bg-[url('./assets/hero.jpg')] bg-cover bg-center"
+      class="h-[1100px] lg:h-[680px] relative flex items-center justify-center bg-[url('./assets/hero.jpg')] bg-cover bg-center"
     >
       <div class="absolute inset-0 bg-black/20"></div>
+      <div class="container mx-auto px-4 relative z-20 absolute md:top-[6%]">
+        <div id="search-root"></div>
+      </div>
     </section>
 
-    <div class="container mx-auto px-4 relative z-20 -mt-32">
-      <div id="search-root"></div>
-    </div>
-
-    <main class="container mx-auto px-4 py-20">
+    <main class="max-w-[1140px] mx-auto px-4 py-20">
       <div id="flights-root"></div>
 
       <div id="hotels-root"></div>

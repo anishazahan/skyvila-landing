@@ -1,9 +1,9 @@
 export const RenderHeader = () => `
-    <div class="container mx-auto px-4 flex justify-between items-center h-20">
+    <div class="max-w-[1140px] mx-auto px-4 flex justify-between items-center h-20">
         <div class="flex items-center gap-2">
-            <img src="./assets/logo.png" class="h-8" onerror="this.outerHTML='<span class=\'font-outfit text-2xl font-bold text-skyBlue\'>skyvela</span>'">
+            <img src="./assets/logo.png" class="w-[160px]" onerror="this.outerHTML='<span class=\'font-outfit text-2xl font-bold text-skyBlue\'>skyvela</span>'">
         </div>
-        <div class="hidden lg:flex items-center gap-10 font-semibold text-slate-600">
+        <div class="hidden lg:flex items-center gap-10 font-medium text-skyBlue">
             <a href="#" class="text-skyBlue border-b-2 border-skyBlue pb-1">Flights</a>
             <a href="#" class="hover:text-skyBlue transition">Hotels</a>
             <a href="#" class="hover:text-skyBlue transition">Packages</a>
@@ -11,123 +11,228 @@ export const RenderHeader = () => `
             <a href="#" class="hover:text-skyBlue transition">Transfers</a>
         </div>
         <div class="flex items-center gap-4">
-            <button class="flex items-center gap-2 text-sm font-bold text-slate-700">
+            <button class="flex items-center gap-2 text-sm font-medium text-skyvela">
                 <img src="https://flagcdn.com/us.svg" class="w-5"> ENG <i class="fa-solid fa-chevron-down text-[10px]"></i>
             </button>
-            <button class="bg-skyBlue text-gray50 px-8 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2">Sign In <i class="fa-solid fa-arrow-right"></i></button>
-            <button onclick="window.toggleMenu(true)" class="bg-skyAccent p-3 rounded-xl text-slate-900"><i class="fa-solid fa-bars-staggered"></i></button>
+            <button class="bg-skyBlue text-gray50 px-8 py-2.5 rounded-md font-medium text-sm flex items-center gap-2">Sign In <i class="fa-solid fa-arrow-right"></i></button>
+            <button onclick="window.toggleMenu(true)" class="bg-skyAccent px-3 py-2 rounded-lg text-slate-900"><i class="fa-solid fa-bars-staggered"></i></button>
         </div>
     </div>
 `;
 
 export const RenderSearchWidget = () => `
-    <div class="bg-white rounded-4xl shadow-2xl p-8 max-w-6xl mx-auto border border-slate-100">
-        <div class="flex gap-8 border-b border-slate-100 mb-8 overflow-x-auto pb-2">
-            <button class="flex items-center gap-2 pb-4 text-skyBlue font-bold border-b-2 border-skyBlue whitespace-nowrap">
-                <i class="fa-solid fa-plane"></i> Flights
+    <div class="bg-white rounded-[24px] shadow-2xl pt-6 px-4 md:px-10 pb-16 max-w-[1100px] mx-auto border border-slate-100 relative">
+        <div class="flex items-center gap-6 md:gap-10 border-b border-slate-100 mb-8 overflow-x-auto no-scrollbar">
+            <button class="flex items-center gap-2 pb-4 text-skyBlue border-b-2 border-skyBlue whitespace-nowrap min-w-fit font-medium">
+                <i class="fa-solid fa-plane-up text-lg rotate-45"></i>
+                <span class="text-sm">Flights</span>
             </button>
-            <button class="flex items-center gap-2 pb-4 text-slate-400 font-medium whitespace-nowrap"><i class="fa-solid fa-hotel"></i> Hotels</button>
-            <button class="flex items-center gap-2 pb-4 text-slate-400 font-medium whitespace-nowrap"><i class="fa-solid fa-suitcase"></i> Packages</button>
-            <button class="flex items-center gap-2 pb-4 text-slate-400 font-medium whitespace-nowrap"><i class="fa-solid fa-person-walking-luggage"></i> Activities</button>
+            <button class="flex items-center gap-2 pb-4 text-slate-400 font-medium whitespace-nowrap min-w-fit hover:text-skyBlue transition">
+                <i class="fa-solid fa-hotel text-lg"></i>
+                <span class="text-sm">Hotels</span>
+            </button>
+            <button class="flex items-center gap-2 pb-4 text-slate-400 font-medium whitespace-nowrap min-w-fit hover:text-skyBlue transition">
+                <i class="fa-solid fa-briefcase text-lg"></i>
+                <span class="text-sm">Packages</span>
+            </button>
+            <button class="flex items-center gap-2 pb-4 text-slate-400 font-medium whitespace-nowrap min-w-fit hover:text-skyBlue transition">
+                <i class="fa-solid fa-person-walking-luggage text-lg"></i>
+                <span class="text-sm">Activities</span>
+            </button>
+            <button class="flex items-center gap-2 pb-4 text-slate-400 font-medium whitespace-nowrap min-w-fit hover:text-skyBlue transition">
+                <i class="fa-solid fa-bus text-lg"></i>
+                <span class="text-sm">Transfers</span>
+            </button>
         </div>
 
-        <div class="flex gap-6 mb-6">
-            <label class="flex items-center gap-2 cursor-pointer font-bold text-sm text-skyBlue">
-                <input type="radio" name="trip" checked class="accent-skyBlue"> One Way
-            </label>
-            <label class="flex items-center gap-2 cursor-pointer font-medium text-sm text-slate-400">
-                <input type="radio" name="trip" class="accent-skyBlue"> Round Trip
-            </label>
+        <div class="flex flex-wrap gap-2 md:gap-4 mb-8">
+            <button class="bg-skyBlue text-white px-5 py-2.5 rounded-lg flex items-center gap-2 text-sm font-medium shadow-md">
+                <i class="fa-solid fa-circle-dot"></i> One Way
+            </button>
+            <button class="bg-slate-100 text-slate-500 px-5 py-2.5 rounded-lg flex items-center gap-2 text-sm font-medium hover:bg-slate-200 transition">
+                <i class="fa-regular fa-circle"></i> Round Trip
+            </button>
+            <button class="bg-slate-100 text-slate-500 px-5 py-2.5 rounded-lg flex items-center gap-2 text-sm font-medium hover:bg-slate-200 transition">
+                <i class="fa-regular fa-circle"></i> Multi City
+            </button>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-3">
-            <div class="md:col-span-3 border-2 border-slate-100 rounded-2xl p-4 relative">
-                <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">From</p>
-                <p class="font-bold text-slate-800">Dhaka</p>
-                <p class="text-[10px] text-slate-400">DAC, Hazrat Shahjalal Inter</p>
-                <div class="absolute -right-4 top-1/2 -translate-y-1/2 bg-white border-2 border-slate-100 p-2 rounded-full z-10 cursor-pointer">
-                    <i class="fa-solid fa-right-left text-[10px] text-slate-400"></i>
+        <div class="flex flex-col lg:flex-row gap-3">
+            
+            <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 border border-slate-300 rounded-[12px] overflow-hidden relative">
+                <div class="p-4 flex items-start gap-3 border-b lg:border-b-0 md:border-r border-slate-200 hover:bg-slate-50 transition cursor-pointer">
+                    <i class="fa-solid fa-location-dot text-skyBlue text-xl mt-1"></i>
+                    <div>
+                        <p class="text-sm text-skyBlue uppercase mb-0.5 tracking-wider">From</p>
+                        <p class="font-medium text-skyBlue text-lg leading-none mt-1">Dhaka</p>
+                        <p class="text-xs text-skyvela mt-1">DAC, Hazrat Shahjalal Inter</p>
+                    </div>
+                </div>
+                
+                <div class="absolute left-1/2 top-1/2 md:top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white border border-slate-300 w-9 h-9 rounded-full z-20 flex items-center justify-center shadow-md hover:rotate-180 transition-transform duration-300">
+                    <i class="fa-solid fa-right-left text-[10px] text-skyBlue"></i>
+                </div>
+
+                <div class="p-4 flex items-start gap-3 pl-8 md:pl-8 hover:bg-slate-50 transition cursor-pointer">
+                    <i class="fa-solid fa-paper-plane text-skyBlue text-xl mt-1"></i>
+                    <div>
+                          <p class="text-sm text-skyBlue uppercase mb-0.5 tracking-wider">To</p>
+                         <p class="font-medium text-skyBlue text-lg leading-none mt-1">Cox's Bazar</p>
+                         <p class="text-xs text-skyvela mt-1">CXB, Cox's Bazar Airport</p>
+                    </div>
                 </div>
             </div>
-            <div class="md:col-span-3 border-2 border-slate-100 rounded-2xl p-4">
-                <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">To</p>
-                <p class="font-bold text-slate-800">Cox's Bazar</p>
-                <p class="text-[10px] text-slate-400">CXB, Cox's Bazar Airport</p>
+
+            <div class="flex-1 grid grid-cols-1 md:grid-cols-2 border border-slate-200 rounded-[18px] overflow-hidden">
+                <div class="p-4 flex items-start gap-3 border-b md:border-b-0 md:border-r border-slate-200 hover:bg-slate-50 transition cursor-pointer">
+                    <i class="fa-solid fa-calendar-days text-skyBlue text-xl mt-1"></i>
+                    <div>
+               <p class="text-sm text-skyBlue uppercase mb-0.5 tracking-wider">Departure Date</p>
+                        <p class="font-medium text-skyBlue text-lg leading-none mt-1">22 Mar'26</p>
+                       <p class="text-xs text-skyvela mt-1">Sunday</p>
+                    </div>
+                </div>
+                <div class="p-4 flex items-start hover:bg-slate-50 transition cursor-pointer">
+                    <div class="md:pl-2">
+                       <p class="text-sm text-skyBlue uppercase mb-0.5 tracking-wider">Return Date</p>
+                          <p class="text-sm text-skyvela mt-1">Save more on return flight</p>
+                    </div>
+                </div>
             </div>
-            <div class="md:col-span-2 border-2 border-slate-100 rounded-2xl p-4">
-                <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Departure Date</p>
-                <p class="font-bold text-slate-800">22 Mar '26</p>
-                <p class="text-[10px] text-slate-400">Sunday</p>
+
+            <div class="w-full md:w-[240px] border border-slate-200 rounded-[18px] p-4 flex items-start gap-3 hover:bg-slate-50 transition cursor-pointer">
+                <i class="fa-solid fa-user-group text-skyBlue text-xl mt-1"></i>
+                <div>
+                    <p class="text-sm text-skyBlue uppercase mb-0.5 tracking-wider">Traveler, Class</p>
+                  <p class="font-medium text-skyBlue text-lg leading-none mt-1">1 Traveler</p>
+                    <p class="text-xs text-skyvela mt-1">Economy</p>
+                </div>
             </div>
-            <div class="md:col-span-2 border-2 border-slate-100 rounded-2xl p-4 bg-slate-50/50">
-                <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Return Date</p>
-                <p class="text-xs text-slate-400 italic">Save more on return</p>
-            </div>
-            <div class="md:col-span-2">
-                <button class="w-full h-full bg-skyAccent text-slate-900 font-bold rounded-2xl flex items-center justify-center gap-2 hover:brightness-95 transition py-4 md:py-0">
-                    Search <i class="fa-solid fa-arrow-right"></i>
-                </button>
-            </div>
+
+        </div>
+
+        <div class="absolute -bottom-7 left-1/2 -translate-x-1/2 w-full max-w-[180px]">
+            <button class="w-full bg-[#FDCC02] text-skyBlue font-medium py-4 rounded-lg shadow-lg hover:shadow-skyAccent/40 hover:scale-105 transition-all flex items-center justify-center gap-3">
+                Search <i class="fa-solid fa-arrow-right"></i>
+            </button>
         </div>
     </div>
 `;
 export const RenderSideMenu = () => `
-    <div class="fixed inset-0 bg-black/40 backdrop-blur-sm" onclick="window.toggleMenu(false)"></div>
-    <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl p-8 overflow-y-auto flex flex-col">
-        <div class="flex justify-between items-center mb-10">
-            <span class="font-outfit text-2xl font-bold text-skyBlue">skyvela</span>
-            <button onclick="window.toggleMenu(false)" class="text-slate-400 hover:text-red-500 transition">
+    <div class="fixed inset-0 bg-black/40 backdrop-blur-sm z-[100]" onclick="window.toggleMenu(false)"></div>
+    
+    <div class="fixed right-0 top-0 h-full w-[280px] bg-white z-[101] overflow-y-auto 
+                lg:left-1/2 lg:top-1/2 lg:h-auto lg:w-full lg:max-w-[1000px] lg:-translate-x-1/2 lg:-translate-y-1/2 lg:rounded-2xl lg:p-12 p-6">
+        
+        <div class="flex justify-between items-center mb-8 lg:mb-12">
+            <div class="flex items-center gap-2">
+                <img src="./assets/logo.png" class="w-[140px]" onerror="this.outerHTML='<span class=\'font-outfit text-2xl font-bold text-skyBlue\'>skyvela</span>'">
+            </div>
+            <button onclick="window.toggleMenu(false)" class="text-skyvela hover:text-skyBlue transition-colors">
                 <i class="fa-solid fa-xmark text-2xl"></i>
             </button>
         </div>
-        
-        <div class="grid grid-cols-2 gap-y-10 gap-x-4 mb-12">
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12">
+            
             <div>
-                <h4 class="font-bold text-slate-800 mb-4 border-b pb-2">Travel</h4>
-                <div class="space-y-4 text-sm font-medium text-slate-500">
-                    <p class="flex items-center gap-2 hover:text-skyBlue cursor-pointer"><i class="fa-solid fa-plane"></i> Flights</p>
-                    <p class="flex items-center gap-2 hover:text-skyBlue cursor-pointer"><i class="fa-solid fa-hotel"></i> Hotels</p>
-                    <p class="flex items-center gap-2 hover:text-skyBlue cursor-pointer"><i class="fa-solid fa-box"></i> Packages</p>
-                </div>
+                <h4 class="font-semibold text-skyBlue mb-4 lg:mb-6 uppercase tracking-wider text-sm lg:text-base">Travel</h4>
+                <ul class="space-y-3 lg:space-y-4 text-skyvela text-sm lg:text-base">
+                    <li class="flex items-center gap-3 hover:text-skyBlue cursor-pointer"><i class="fa-solid fa-plane-up w-5"></i> Flights</li>
+                    <li class="flex items-center gap-3 hover:text-skyBlue cursor-pointer"><i class="fa-solid fa-hotel w-5"></i> Hotels</li>
+                    <li class="flex items-center gap-3 hover:text-skyBlue cursor-pointer"><i class="fa-solid fa-box-archive w-5"></i> Packages</li>
+                    <li class="flex items-center gap-3 hover:text-skyBlue cursor-pointer"><i class="fa-solid fa-person-walking-luggage w-5"></i> Activities</li>
+                    <li class="flex items-center gap-3 hover:text-skyBlue cursor-pointer"><i class="fa-solid fa-car-side w-5"></i> Transfers</li>
+                </ul>
             </div>
+
+            <div>
+                <h4 class="font-semibold text-skyBlue mb-4 lg:mb-6 uppercase tracking-wider text-sm lg:text-base">Company</h4>
+                <ul class="space-y-3 lg:space-y-4 text-skyvela text-sm lg:text-base">
+                    <li class="flex items-center gap-3 hover:text-skyBlue cursor-pointer"><i class="fa-solid fa-circle-info w-5"></i> About Us</li>
+                    <li class="flex items-center gap-3 hover:text-skyBlue cursor-pointer"><i class="fa-solid fa-newspaper w-5"></i> Blog</li>
+                    <li class="flex items-center gap-3 hover:text-skyBlue cursor-pointer"><i class="fa-solid fa-image w-5"></i> Gallery</li>
+                </ul>
             </div>
-        
-        <div class="mt-auto border-t pt-8">
-            <p class="text-[10px] font-bold uppercase text-slate-400 mb-4">Region & Currency</p>
-            <div class="flex items-center gap-3 bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                <img src="https://flagcdn.com/us.svg" class="w-6 rounded-sm">
-                <span class="font-bold text-sm">English - USD</span>
-                <i class="fa-solid fa-chevron-right ml-auto text-slate-300"></i>
+
+            <div>
+                <h4 class="font-semibold text-skyBlue mb-4 lg:mb-6 uppercase tracking-wider text-sm lg:text-base">Support</h4>
+                <ul class="space-y-3 lg:space-y-4 text-skyvela text-sm lg:text-base">
+                    <li class="flex items-center gap-3 hover:text-skyBlue cursor-pointer"><i class="fa-solid fa-headset w-5"></i> Help Center</li>
+                    <li class="flex items-center gap-3 hover:text-skyBlue cursor-pointer"><i class="fa-solid fa-envelope w-5"></i> Contact Us</li>
+                </ul>
             </div>
+
+            <div>
+                <h4 class="font-semibold text-skyBlue mb-4 lg:mb-6 uppercase tracking-wider text-sm lg:text-base">Account</h4>
+                <ul class="space-y-3 lg:space-y-4 text-skyvela text-sm lg:text-base">
+                    <li class="flex items-center gap-3 hover:text-skyBlue cursor-pointer"><i class="fa-solid fa-briefcase w-5"></i> My Booking</li>
+                    <li class="flex items-center gap-3 hover:text-skyBlue cursor-pointer"><i class="fa-solid fa-bookmark w-5"></i> Saved</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-8 pt-8 border-t lg:hidden">
+             <h4 class="font-bold text-skyBlue mb-4 uppercase tracking-wider text-sm">Region & Currency</h4>
+             <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
+                <img src="https://flagcdn.com/us.svg" class="w-6">
+                <span class="text-sm font-medium text-skyvela">English - USD</span>
+             </div>
         </div>
     </div>
 `;
 
 export const FlightCard = (f) => `
-    <div class="bg-white p-6 rounded-2xl border border-skyBorder hover:shadow-xl transition-all group">
+    <div class="bg-white p-6 rounded-[24px] shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-50 group">
         <div class="flex justify-between items-start mb-6">
-            <div class="flex items-center gap-3">
-                <i class="fa-solid fa-plane text-skyBlue text-xl"></i>
-                <span class="font-bold text-lg">${f.code}</span>
+            <div class="w-10 h-10 bg-skyBlue rounded-full flex items-center justify-center text-white shadow-lg">
+                <i class="fa-solid fa-plane-up rotate-45 text-sm"></i>
+            </div>
+            <div class="flex gap-2">
+                <span class="bg-blue-50 text-blue-500 text-xs font-medium px-3 py-1 rounded-md  tracking-wider">
+                    ${f.badgeLabel}
+                </span>
+                <span class="bg-amber-50 text-amber-500 text-xs font-medium px-3 py-1 rounded-md  tracking-wider">
+                    ${f.badgeText}
+                </span>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-between mb-8">
+            <span class="font-outfit text-xl -mt-2 text-skyBlue">${f.code}</span>
+            
+            <div class="flex-1 px-4 mx-4 mt-4 relative">
+                <div class="flex items-center justify-between absolute inset-x-0 -top-2 z-20">
+                    <div class="w-4 h-4 rounded-full bg-amber-400/20 flex items-center justify-center">
+                        <div class="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
+                    </div>
+                    <div class="w-4 h-4 rounded-full bg-skyCyan/20 flex items-center justify-center">
+                        <div class="w-1.5 h-1.5 rounded-full bg-skyCyan"></div>
+                    </div>
+                </div>
+                
+                <div class="h-[1px] border-b-2 border-dashed border-slate-200 w-full relative">
+                    <i class="fa-solid fa-plane absolute left-1/2 -translate-x-1/2 -top-2 text-skyBlue text-sm rotate-0"></i>
+                </div>
+
+                <div class="flex justify-between mt-2">
+                    <p class="text-sm text-skyvela font-medium">Dhaka</p>
+                    <p class="text-sm font-medium text-skyBlue">1 Stop</p>
+                    <p class="text-sm text-skyvela font-medium">Dubai</p>
+                </div>
+            </div>
+
+            <span class="font-outfit text-xl -mt-2  text-skyBlue">${f.to}</span>
+        </div>
+
+        <div class="flex items-center justify-between pt-6 border-t border-slate-50">
+            <div class="flex items-center gap-1">
+                <img src="${f.logo}" class="w-10 h-10 rounded-lg object-cover bg-slate-50 p-1">
+                <span class="text-sm max-w-[70px]  text-skyBlue">${f.airline}</span>
             </div>
             <div class="text-right">
-                <p class="text-[10px] text-slate-400 font-bold uppercase">${f.badgeLabel}</p>
-                <p class="text-xs text-skyAccent font-bold">${f.badgeText}</p>
+                <p class="text-lg font-semibold text-skyBlue">$${f.price}<span class="text-sm font-normal text-skyvela"> / person</span></p>
             </div>
-        </div>
-        <div class="flex items-center justify-between mb-6">
-            <div class="text-center"><p class="font-bold">${f.from}</p><p class="text-xs text-slate-400">1 Stop</p></div>
-            <div class="flex-1 px-4"><div class="h-[1px] bg-slate-200 w-full relative">
-                <i class="fa-solid fa-plane absolute left-1/2 -top-2 text-[10px] text-skyBlue/40"></i>
-            </div></div>
-            <div class="text-center"><p class="font-bold">${f.to}</p><p class="text-xs text-slate-400">Dubai</p></div>
-        </div>
-        <div class="flex items-center justify-between pt-4 border-t border-slate-50">
-            <div class="flex items-center gap-2">
-                <img src="${f.logo}" class="w-6 h-6 rounded-full object-cover">
-                <span class="text-xs font-semibold text-slate-600">${f.airline}</span>
-            </div>
-            <p class="font-bold text-skyBlue">$${f.price}<span class="text-[10px] font-normal text-slate-400"> / person</span></p>
         </div>
     </div>
 `;
@@ -189,15 +294,13 @@ export const HotelCard = (hotel) => `
         </div>
     </div>
 `;
-
-// Updated Activity Card Component
 export const ActivityCard = (act) => `
     <div class=" h-full">
         <div class="rounded-[12px] overflow-hidden group h-full flex flex-col transition-all duration-300">
             <div class="relative h-[220px] md:h-[240px] overflow-hidden">
                 <img src="${act.img}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 rounded-[12px]">
                 <span class="absolute top-4 left-4 bg-skyBlue/90 backdrop-blur-sm text-gray50 text-[11px] font-medium px-4 py-1.5 rounded-full shadow-lg">
-                    ${act.badge}
+                    ${act.badge || ""}
                 </span>
             </div>
             

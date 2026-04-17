@@ -10,9 +10,33 @@ import {
 } from './components.js';
 
 const flights = [
-    { code: 'DAC', from: 'Dhaka', to: 'DXB', airline: 'Qatar Airways', price: 345, badgeLabel: 'Best', badgeText: 'Cheapest', logo: 'https://logo.clearbit.com/qatarairways.com' },
-    { code: 'DAC', from: 'Dhaka', to: 'DXB', airline: 'Emirates', price: 345, badgeLabel: 'Bundle', badgeText: 'Save Deal', logo: 'https://logo.clearbit.com/emirates.com' },
-    { code: 'DAC', from: 'Dhaka', to: 'DXB', airline: 'Jazeera Airways', price: 345, badgeLabel: 'Best', badgeText: 'Cheapest', logo: 'https://logo.clearbit.com/jazeeraairways.com' }
+    { 
+        code: 'DAC', 
+        to: 'DXB', 
+        airline: 'Qatar Airways', 
+        price: 345, 
+        badgeLabel: 'Best', 
+        badgeText: 'Cheapest', 
+        logo: './assets/Qatar-Airways-Symbol-1.png' 
+    },
+    { 
+        code: 'DAC', 
+        to: 'DXB', 
+        airline: 'Emirates', 
+        price: 345, 
+        badgeLabel: 'Bundle', 
+        badgeText: 'Save Deal', 
+     logo: './assets/Qatar-Airways-Symbol-1.png' 
+    },
+    { 
+        code: 'DAC', 
+        to: 'DXB', 
+        airline: 'Jazeera Airways', 
+        price: 345, 
+        badgeLabel: 'Best', 
+        badgeText: 'Cheapest', 
+       logo: './assets/Qatar-Airways-Symbol-1.png' 
+    }
 ];
 
 const hotels = [
@@ -51,14 +75,14 @@ const activities = [
     { 
         title: 'Mountain Hiking Experience', 
         badge: 'Save Deals', 
-        img: './assets/features-activity-img-2.jpg', 
+           img: './assets/features-activity-img-2.jpg',  
         location: 'Switzerland', 
         price: '99' 
     },
     { 
         title: 'City Bridge Walk', 
-        badge: 'Best Saves', 
-        img: './assets/features-activity-img-3.jpg', 
+                badge: 'Best saves', 
+         img: './assets/features-activity-img-3.jpg', 
         location: 'Switzerland', 
         price: '99' 
     }
@@ -68,7 +92,14 @@ const activities = [
 window.toggleMenu = (open) => {
     const menu = document.getElementById('side-menu-root');
     if (menu) {
-        menu.classList.toggle('translate-x-full', !open);
+
+        if (open) {
+            menu.classList.remove('translate-x-full', 'opacity-0', 'invisible');
+            menu.classList.add('translate-x-0', 'opacity-100', 'visible');
+        } else {
+            menu.classList.add('translate-x-full', 'opacity-0', 'invisible');
+            menu.classList.remove('translate-x-0', 'opacity-100', 'visible');
+        }
     }
 };
 
@@ -85,12 +116,12 @@ document.addEventListener('DOMContentLoaded', () => {
         flightsContainer.innerHTML = `
             <div class="flex justify-between items-end mb-8">
                 <div>
-                    <p class="text-skyBlue font-bold text-xs uppercase tracking-widest">Best Deals</p>
-                    <h2 class="font-outfit text-3xl font-bold">Featured Flights</h2>
+                    <p class="text-skyBlue/60 text-sm font-semibold tracking-wider mb-1">Best Deals</p>
+                    <h2 class="font-outfit tracking-wide text-xl md:text-2xl mt-3 lg:text-3xl lg:text-4xl font-semibold text-skyBlue">Featured Flights</h2>
                 </div>
                 <a href="#" class="text-skyBlue font-bold text-sm hover:underline">View All</a>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 ${flights.map(f => FlightCard(f)).join('')}
             </div>
         `;
@@ -128,7 +159,7 @@ if (activitiesContainer) {
             </div>
 
       
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-5 lg:mb-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-5 lg:mb-10">
                     ${activities.map(a => ActivityCard(a)).join('')}
                 </div>
            
