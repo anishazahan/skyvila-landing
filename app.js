@@ -1,6 +1,7 @@
 import {
     ActivityCard,
     FlightCard,
+    HotelCard,
     RenderFooter,
     RenderHeader,
     RenderPromotionalSection,
@@ -12,6 +13,12 @@ const flights = [
     { code: 'DAC', from: 'Dhaka', to: 'DXB', airline: 'Qatar Airways', price: 345, badgeLabel: 'Best', badgeText: 'Cheapest', logo: 'https://logo.clearbit.com/qatarairways.com' },
     { code: 'DAC', from: 'Dhaka', to: 'DXB', airline: 'Emirates', price: 345, badgeLabel: 'Bundle', badgeText: 'Save Deal', logo: 'https://logo.clearbit.com/emirates.com' },
     { code: 'DAC', from: 'Dhaka', to: 'DXB', airline: 'Jazeera Airways', price: 345, badgeLabel: 'Best', badgeText: 'Cheapest', logo: 'https://logo.clearbit.com/jazeeraairways.com' }
+];
+
+const hotels = [
+    { name: 'Grand Switzerland', location: 'Switzerland', reviews: '4.8 (3.0K Reviews)', price: 345, badge: 'Lowest Price', img: './assets/popular-hotel-img-1.png' },
+    { name: 'Tiny House Dreich...', location: 'Germany, Trier', reviews: '4.8 (3.0K Reviews)', price: 345, badge: '20% Offers', img: './assets/popular-hotel-img-2.png' },
+    { name: 'Grand Switzerland', location: 'Switzerland', reviews: '4.8 (3.0K Reviews)', price: 345, badge: 'Best buy for', img: './assets/popular-hotel-img-3.jpg' }
 ];
 
 const promos = [
@@ -34,9 +41,27 @@ const promos = [
 ];
 
 const activities = [
-    { title: 'Coral Reef Snorkeling Tour', badge: '20% off', img: 'https://images.unsplash.com/photo-1544551763-47a0159f9234?q=80&w=600' },
-    { title: 'Mountain Hiking Experience', badge: 'Save Deals', img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600' },
-    { title: 'City Bridge Walk', badge: 'Best Saves', img: 'https://images.unsplash.com/photo-1449034446853-66c86144b0ad?q=80&w=600' }
+    { 
+        title: 'Coral Reef Snorkeling Tour', 
+        badge: '20% off', 
+        img: './assets/features-activity-img-1.jpg', 
+        location: 'Switzerland', 
+        price: '99' 
+    },
+    { 
+        title: 'Mountain Hiking Experience', 
+        badge: 'Save Deals', 
+        img: './assets/features-activity-img-2.jpg', 
+        location: 'Switzerland', 
+        price: '99' 
+    },
+    { 
+        title: 'City Bridge Walk', 
+        badge: 'Best Saves', 
+        img: './assets/features-activity-img-3.jpg', 
+        location: 'Switzerland', 
+        price: '99' 
+    }
 ];
 
 
@@ -71,37 +96,48 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
 
-    // 3. Render Activities (Slider Logic)
-    const activitiesContainer = document.getElementById('activities-root');
-    if (activitiesContainer) {
-        activitiesContainer.innerHTML = `
+const hotelsContainer = document.getElementById('hotels-root');
+if (hotelsContainer) {
+    hotelsContainer.innerHTML = `
+        <div class="flex justify-between items-end pt-14 lg:pt-24">
+            <div>
+                <p class="text-skyBlue/60 text-sm font-semibold tracking-wider mb-1">Top Rated</p>
+                <h2 class="font-outfit tracking-wide text-xl md:text-2xl mt-3 lg:text-3xl lg:text-4xl font-semibold text-skyBlue">Popular Hotels</h2>
+            </div>
+            <a href="#" class="text-skyBlue font-bold text-sm hover:underline">View All</a>
+        </div>
+        <div class="mt-8 lg:mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-14 lg:mb-24">
+            ${hotels.map(hotel => HotelCard(hotel)).join('')}
+        </div>
+    `;
+}
+
+
+const activitiesContainer = document.getElementById('activities-root');
+if (activitiesContainer) {
+    activitiesContainer.innerHTML = `
+        <div class="container mx-auto">
             <div class="flex justify-between items-end mb-10">
                 <div>
-                    <p class="text-skyBlue font-bold text-xs uppercase tracking-widest">Experiences</p>
-                    <h2 class="font-outfit text-3xl font-bold">Featured Activities</h2>
+                    <p class="text-skyBlue/60 text-sm font-semibold tracking-wider mb-1">Experiences</p>
+                    <h2 class="font-outfit tracking-wide text-xl md:text-2xl mt-3 lg:text-3xl lg:text-4xl font-semibold text-skyBlue">Featured Activities</h2>
                 </div>
-                <a href="#" class="text-skyBlue font-bold text-sm hover:underline">View All</a>
+                <a href="#" class="text-skyBlue font-bold text-sm hover:underline flex items-center gap-2">
+                    View All
+                </a>
             </div>
-            <div class="swiper activitySwiper overflow-hidden">
-                <div class="swiper-wrapper mb-10">
+
+      
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-5 lg:mb-10">
                     ${activities.map(a => ActivityCard(a)).join('')}
                 </div>
-                <div class="swiper-pagination"></div>
-            </div>
-        `;
-        
-        // Initialize Swiper ONLY after the HTML is injected
-        new Swiper('.activitySwiper', {
-            slidesPerView: 1,
-            spaceBetween: 24,
-            pagination: { el: '.swiper-pagination', clickable: true },
-            breakpoints: {
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 }
-            }
-        });
-    }
+           
+         
+        </div>
+    `;
 
+
+}
     // 4. Render Promotional Offers
     const promosContainer = document.getElementById('promos-root');
 if (promosContainer) {

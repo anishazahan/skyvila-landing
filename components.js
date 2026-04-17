@@ -132,19 +132,101 @@ export const FlightCard = (f) => `
     </div>
 `;
 
-// Activity Card Component
-export const ActivityCard = (act) => `
-    <div class="swiper-slide h-full">
-        <div class="bg-white rounded-3xl overflow-hidden group h-full flex flex-col">
-            <div class="relative h-56">
-                <img src="${act.img}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                <span class="absolute top-4 left-4 bg-skyBlue text-gray50 text-[10px] font-bold px-3 py-1 rounded-md">${act.badge}</span>
+export const HotelCard = (hotel) => `
+    <div class="bg-white  rounded-[12px] overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group h-full flex flex-col">
+        <div class="relative h-[220px] overflow-hidden rounded-tl-[20px] rounded-tr-[20px]">
+            <img src="${hotel.img}" class="w-full px-6 pt-6  h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            
+            <div class="absolute top-10 left-0 z-10">
+                <div class="bg-skyAccent text-slate-900 text-[11px] font-bold px-4 py-1.5 rounded-r-md flex items-center shadow-md">
+                    ${hotel.badge}
+                    <div class="absolute -bottom-[6px] left-0 w-0 h-0 border-t-[6px] border-t-amber-600 border-l-[6px] border-l-transparent"></div>
+                </div>
             </div>
-            <div class="p-6 flex-grow">
-                <p class="text-skyAccent text-xs font-bold mb-2">⭐ 4.8 (3.0K Reviews)</p>
-                <h3 class="font-bold text-lg mb-1">${act.title}</h3>
-                <p class="text-slate-400 text-sm mb-4"><i class="fa-solid fa-location-dot mr-1"></i>Switzerland</p>
-                <p class="text-lg font-bold text-skyBlue mt-auto">FROM $99 <span class="text-xs font-normal text-slate-400">/ person</span></p>
+            
+            <div class="absolute inset-0 flex items-center justify-between px-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                <button class="bg-white/20 backdrop-blur-md text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/40 transition">
+                    <i class="fa-solid fa-chevron-left text-xs"></i>
+                </button>
+                <button class="bg-white/20 backdrop-blur-md text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/40 transition">
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="p-5 flex-grow">
+            <div class="flex justify-between items-start mb-2">
+                <h3 class="font-outfit text-[22px]  text-skyBlue leading-tight">${hotel.name}</h3>
+                <div class="text-right">
+                    <div class="flex text-skyAccent text-[10px] justify-end mb-1">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-sm text-skyBlue ">${hotel.reviews}</p>
+                </div>
+            </div>
+
+            <p class="text-skyBlue text-sm mb-6 flex items-center">
+                <i class="fa-solid fa-location-dot text-skyBlue mr-1"></i>
+                ${hotel.location}
+            </p>
+
+            <div class="flex justify-between items-end ">
+                <div class="space-y-2">
+                    <div class="flex items-center gap-2 text-slate-500 text-xs">
+                        <i class="fa-solid fa-mug-hot text-amber-500"></i>
+                        <span class="text-skyvela text-sm">Breakfast included</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-slate-400 text-[11px]">
+                        <span class="flex items-center gap-1 text-skyvela text-sm"><i class="fa-solid fa-wifi text-green-500"></i> Free Wifi</span>
+                        <span class="flex items-center gap-1 text-skyvela text-sm"><i class="fa-solid fa-snowflake text-skyCyan"></i> Spa</span>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-2xl font-semibold text-skyBlue leading-none">$${hotel.price}</p>
+                    <p class="text-skyvela text-sm mt-1  whitespace-nowrap">for 1 Night, per person</p>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+
+// Updated Activity Card Component
+export const ActivityCard = (act) => `
+    <div class=" h-full">
+        <div class="rounded-[12px] overflow-hidden group h-full flex flex-col transition-all duration-300">
+            <div class="relative h-[220px] md:h-[240px] overflow-hidden">
+                <img src="${act.img}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 rounded-[12px]">
+                <span class="absolute top-4 left-4 bg-skyBlue/90 backdrop-blur-sm text-gray50 text-[11px] font-medium px-4 py-1.5 rounded-full shadow-lg">
+                    ${act.badge}
+                </span>
+            </div>
+            
+            <div class="py-5 flex-grow flex flex-col">
+                <div class="flex items-center gap-1 mb-2">
+                    <div class="flex text-[#FFB800] text-[10px]">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <span class="text-skyBlue text-xs font-medium ml-1">4.8 (3.0K Reviews)</span>
+                </div>
+                
+                <h3 class="font-outfit text-[19px]  text-skyBlue mb-2 leading-tight">
+                    ${act.title}
+                </h3>
+                
+                <p class="text-skyBlue text-sm mb-2 flex items-center">
+                    <i class="fa-solid fa-location-dot text-skyBlue mr-1"></i>
+                    ${act.location}
+                </p>
+                
+                <div class="mt-auto pt-2 border-t border-slate-50">
+                    <p class="text-xs  text-skyvela ">FROM 
+                        <span class="text-xl text-skyBlue ml-1 font-bold">$${act.price}</span>
+                        <span class="text-[10px] text-xs  text-skyvela font-normal lowercase ml-0.5">/person</span>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -156,7 +238,7 @@ export const RenderPromotionalSection = (promos) => `
         <h2 class="font-outfit text-[20px] lg:text-[32px] font-semibold text-skyBlue tracking-wide">Promotional Offers</h2>
     </div>
     
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
         <div class="relative rounded-[12px] overflow-hidden min-h-[280px] md:h-full group cursor-pointer">
             <img src="${promos[0].img}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
