@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skyvela - Pixel Perfect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              skyBlue: "#1E3A8A",
+              skyAccent: "#FFB800",
+              skyCyan: "#06B6D4",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              outfit: ["Outfit", "sans-serif"],
+            },
+            borderRadius: { "4xl": "2rem" },
+          },
+        },
+      };
+    </script>
+    <style>
+      .hero-bg {
+        background-image: url("./assets/hero.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .search-float {
+        transform: translateY(-50%);
+      }
+      .side-menu-transition {
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+    </style>
+  </head>
+  <body class="bg-[#F8FAFC] font-sans">
+    <div
+      id="side-menu-root"
+      class="fixed inset-0 z-[100] translate-x-full transition-transform duration-500"
+    ></div>
+
+    <header
+      id="header-root"
+      class="bg-white border-b sticky top-0 z-50"
+    ></header>
+
+    <section
+      class="h-[540px] relative flex items-center justify-center bg-[url('./assets/hero.jpg')] bg-cover bg-center"
+    >
+      <div class="absolute inset-0 bg-black/20"></div>
+    </section>
+
+    <div class="container mx-auto px-4 relative z-20 -mt-32">
+      <div id="search-root"></div>
+    </div>
+
+    <main class="container mx-auto px-4 py-20 space-y-24">
+      <div id="flights-root"></div>
+
+      <div
+        id="activities-root"
+        class="border-2 border-dashed border-skyCyan/30 rounded-[40px] p-8 md:p-12 bg-white"
+      ></div>
+
+      <div id="promos-root"></div>
+    </main>
+
+    <footer id="footer-root" class="bg-skyBlue text-white pt-16 pb-8"></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
