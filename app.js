@@ -1,9 +1,9 @@
 import {
     ActivityCard,
     FlightCard,
-    PromoCard,
     RenderFooter,
     RenderHeader,
+    RenderPromotionalSection,
     RenderSearchWidget,
     RenderSideMenu
 } from './components.js';
@@ -15,9 +15,22 @@ const flights = [
 ];
 
 const promos = [
-    { title: 'Your next adventure begins', text: '-30% Off Hotel Bookings', label: 'Limited Time', bg: 'bg-gradient-to-br from-skyCyan to-blue-500', icon: 'fa-solid fa-hotel' },
-    { title: 'Up to 50% Savings on Flights', text: '18 - 20 March 2026', label: 'Limited-Time Offer', bg: 'bg-red-500', icon: 'fa-solid fa-plane' },
-    { title: 'Start your next journey', text: '-50% Off Hotel Bookings', label: 'Exclusive Deal', bg: 'bg-skyBlue', icon: 'fa-solid fa-suitcase' }
+    { 
+        title: 'Your next adventure begins', 
+        text: '-30% Off Hotel Bookings', 
+        img: './assets/promotional-img-1.jpg' 
+    },
+    { 
+        title: 'Up to 50% Savings on Flights', 
+        text: '18 - 20 March 2026', 
+        label: 'Limited-Time Offer', 
+        img: './assets/promotional-img-2.jpg' 
+    },
+    { 
+        title: 'Start your next journey', 
+        text: '50% Off Hotel Bookings', 
+        img: './assets/promotional-img-3.jpeg' 
+    }
 ];
 
 const activities = [
@@ -91,12 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. Render Promotional Offers
     const promosContainer = document.getElementById('promos-root');
-    if (promosContainer) {
-        promosContainer.innerHTML = `
-            <h2 class="font-outfit text-3xl font-bold mb-8">Promotional Offers</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                ${promos.map(p => PromoCard(p)).join('')}
-            </div>
-        `;
-    }
+if (promosContainer) {
+    // We pass the entire promos array to the custom section renderer
+    promosContainer.innerHTML = RenderPromotionalSection(promos);
+}
 });

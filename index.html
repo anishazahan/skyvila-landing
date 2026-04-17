@@ -18,9 +18,13 @@
         theme: {
           extend: {
             colors: {
-              skyBlue: "#1E3A8A",
+              skyBlue: "#1E2358",
               skyAccent: "#FFB800",
               skyCyan: "#06B6D4",
+              gray50: "#EDEEF1",
+              primary800: "#272D70",
+              primary900: "#253183",
+              skyvela: "#5B616E",
             },
             fontFamily: {
               sans: ["Inter", "sans-serif"],
@@ -38,14 +42,17 @@
         background-position: center;
         background-repeat: no-repeat;
       }
+
       .search-float {
         transform: translateY(-50%);
       }
+
       .side-menu-transition {
         transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       }
     </style>
   </head>
+
   <body class="bg-[#F8FAFC] font-sans">
     <div
       id="side-menu-root"
@@ -70,15 +77,17 @@
     <main class="container mx-auto px-4 py-20 space-y-24">
       <div id="flights-root"></div>
 
-      <div
-        id="activities-root"
-        class="border-2 border-dashed border-skyCyan/30 rounded-[40px] p-8 md:p-12 bg-white"
-      ></div>
+      <div id="hotels-root"></div>
+
+      <div id="activities-root"></div>
 
       <div id="promos-root"></div>
     </main>
 
-    <footer id="footer-root" class="bg-skyBlue text-white pt-16 pb-8"></footer>
+    <footer
+      id="footer-root"
+      class="bg-[#1E2358] text-white pt-16 lg:pt-[96px] pb-[48px]"
+    ></footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="app.js" type="module"></script>

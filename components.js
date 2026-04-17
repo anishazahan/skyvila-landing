@@ -14,7 +14,7 @@ export const RenderHeader = () => `
             <button class="flex items-center gap-2 text-sm font-bold text-slate-700">
                 <img src="https://flagcdn.com/us.svg" class="w-5"> ENG <i class="fa-solid fa-chevron-down text-[10px]"></i>
             </button>
-            <button class="bg-skyBlue text-white px-8 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2">Sign In <i class="fa-solid fa-arrow-right"></i></button>
+            <button class="bg-skyBlue text-gray50 px-8 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2">Sign In <i class="fa-solid fa-arrow-right"></i></button>
             <button onclick="window.toggleMenu(true)" class="bg-skyAccent p-3 rounded-xl text-slate-900"><i class="fa-solid fa-bars-staggered"></i></button>
         </div>
     </div>
@@ -138,7 +138,7 @@ export const ActivityCard = (act) => `
         <div class="bg-white rounded-3xl overflow-hidden group h-full flex flex-col">
             <div class="relative h-56">
                 <img src="${act.img}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                <span class="absolute top-4 left-4 bg-skyBlue text-white text-[10px] font-bold px-3 py-1 rounded-md">${act.badge}</span>
+                <span class="absolute top-4 left-4 bg-skyBlue text-gray50 text-[10px] font-bold px-3 py-1 rounded-md">${act.badge}</span>
             </div>
             <div class="p-6 flex-grow">
                 <p class="text-skyAccent text-xs font-bold mb-2">⭐ 4.8 (3.0K Reviews)</p>
@@ -150,79 +150,134 @@ export const ActivityCard = (act) => `
     </div>
 `;
 
-// Promotional Offer Component
-export const PromoCard = (p) => `
-    <div class="rounded-[32px] p-8 ${p.bg} text-white min-h-[220px] flex flex-col justify-between relative overflow-hidden group">
-        <span class="bg-white/20 self-start px-3 py-1 rounded-md text-[10px] font-bold uppercase">${p.label}</span>
-        <div class="z-10">
-            <h3 class="text-2xl font-bold leading-tight mb-2">${p.title}</h3>
-            <p class="text-white/80 font-medium">${p.text}</p>
+export const RenderPromotionalSection = (promos) => `
+    <div class="space-y-1 mb-6">
+        <p class="text-skyvela text-base tracking-wider">Special Offers</p>
+        <h2 class="font-outfit text-[20px] lg:text-[32px] font-semibold text-skyBlue tracking-wide">Promotional Offers</h2>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="relative rounded-[12px] overflow-hidden min-h-[280px] md:h-full group cursor-pointer">
+            <img src="${promos[0].img}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+            
+            <div class="relative z-10 p-6 h-full flex flex-col justify-between items-start">
+                <h3 class="text-[28px] lg:text-3xl font-semibold text-gray50 leading-tight max-w-[200px] tracking-wide">
+                    ${promos[0].title}
+                </h3>
+                <span class="bg-white text-skyBlue px-5 py-2.5 rounded-xl text-sm font-bold shadow-lg transition-colors hover:bg-gray-100">
+                    ${promos[0].text}
+                </span>
+            </div>
         </div>
-        <i class="${p.icon} absolute -right-6 -bottom-6 text-9xl text-white/10 group-hover:scale-110 transition-transform"></i>
+
+        <div class="relative rounded-[12px] overflow-hidden min-h-[280px] md:h-full group cursor-pointer bg-[#0091FF]">
+            <img src="${promos[1].img}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-skyBlue/10 backdrop-blur-[1px]"></div>
+            
+            <div class="relative z-10 py-6 h-full flex flex-col justify-between items-start">
+                <div class="space-y-4">
+                    <span class="bg-[#D02A00] text-gray50 px-5 py-2 rounded-tr-lg rounded-br-lg text-[10px] font-bold uppercase tracking-[0.2em] shadow-md">
+                        Limited-Time Offer
+                    </span>
+                    <h3 class="text-[28px] lg:text-3xl pl-6 font-semibold text-gray50 leading-tight max-w-[240px] drop-shadow-md tracking-wide">
+                        Up to 50% Savings on Flights
+                    </h3>
+                </div>
+                <p class="text-gray50 pl-6 text-sm font-semibold opacity-90 tracking-widest drop-shadow-sm">18 - 20 March 2026</p>
+            </div>
+        </div>
+
+        <div class="relative rounded-[12px] overflow-hidden min-h-[280px] md:h-full group cursor-pointer bg-skyBlue">
+            <img src="${promos[2].img}" class="absolute top-0 right-0 w-[85%] h-full object-cover object-right group-hover:scale-105 transition-transform duration-700">
+            
+            <div class="absolute inset-0 bg-gradient-to-r from-skyBlue via-skyBlue/60 to-transparent"></div>
+
+            <div class="relative z-10 p-8 h-full flex flex-col justify-between items-start">
+                <h3 class="text-[28px] lg:text-3xl font-semibold text-gray50 leading-tight max-w-[180px] drop-shadow-md tracking-wide">
+                    Start your next journey
+                </h3>
+                <span class="bg-white text-skyBlue px-5 py-2.5 rounded-lg text-sm font-bold shadow-lg transition-transform active:scale-95">
+                    50% Off Hotel Bookings
+                </span>
+            </div>
+        </div>
     </div>
 `;
-
 export const RenderFooter = () => `
-    <div class="max-w-7xl mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
-            <div class="lg:col-span-2">
-                <div class="flex items-center gap-2 mb-6">
-                    <i class="fa-solid fa-plane-departure text-white text-2xl"></i>
-                    <span class="font-outfit text-2xl font-bold">skyvela</span>
+    <div class="max-w-[1140px] mx-auto px-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
+            
+            <div class="lg:col-span-4">
+                <div class="mr-auto -mt-7">
+                    <img src="./assets/footer-logo.png" class="w-[168px]" alt="Skyvela Logo">
                 </div>
-                <p class="text-white/70 max-w-xs leading-relaxed mb-8">
+                <p class="text-gray50 max-w-[306px] text-sm font-medium leading-relaxed mb-10">
                     Your smart travel companion for flights, hotels, activities and more — across the globe.
                 </p>
                 <div class="space-y-6">
                     <div>
-                        <p class="text-xs font-bold uppercase mb-3 text-white/50 tracking-widest">Language</p>
+                        <p class="text-sm uppercase mb-3 text-gray50 font-medium">Language</p>
                         <div class="flex flex-wrap gap-2">
-                            ${['English', 'বাংলা', 'Français', 'اردو'].map(l => `<span class="bg-white/10 px-3 py-1.5 rounded-lg text-xs cursor-pointer hover:bg-white/20 transition">${l}</span>`).join('')}
+                            ${['English', 'বাংলা', 'Français', 'عربي'].map((l, i) => `
+                                <span class="${i === 0 ? 'bg-primary900 text-gray50' : 'bg-primary800 text-gray50/70 hover:bg-white/10'} px-4 py-2 rounded-lg text-xs cursor-pointer transition font-medium">${l}</span>
+                            `).join('')}
                         </div>
                     </div>
                     <div>
-                        <p class="text-xs font-bold uppercase mb-3 text-white/50 tracking-widest">Currency</p>
+                        <p class="text-sm uppercase mb-3 text-gray50 font-medium">Currency</p>
                         <div class="flex flex-wrap gap-2">
-                            ${['USD', 'EUR', 'GBP', 'BDT', 'AED'].map(c => `<span class="bg-white/10 px-3 py-1.5 rounded-lg text-xs cursor-pointer hover:bg-white/20 transition">${c}</span>`).join('')}
+                            ${['USD', 'EUR', 'GBP', 'BDT', 'AED'].map((c, i) => `
+                                <span class="${i === 0 ? 'bg-[#293b6e] text-gray50' : 'bg-primary800 text-gray50/70 hover:bg-white/10'} px-4 py-2 rounded-lg text-xs cursor-pointer transition font-medium">${c}</span>
+                            `).join('')}
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div>
-                <h4 class="font-bold mb-6 uppercase text-sm tracking-widest">Explore</h4>
-                <ul class="space-y-4 text-white/70 text-sm">
-                    <li><a href="#" class="hover:text-white transition">Flights</a></li>
-                    <li><a href="#" class="hover:text-white transition">Hotels</a></li>
-                    <li><a href="#" class="hover:text-white transition">Activities & Tours</a></li>
-                    <li><a href="#" class="hover:text-white transition">Flight + Hotel</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-bold mb-6 uppercase text-sm tracking-widest">Company</h4>
-                <ul class="space-y-4 text-white/70 text-sm">
-                    <li><a href="#" class="hover:text-white transition">About Us</a></li>
-                    <li><a href="#" class="hover:text-white transition">Blog</a></li>
-                    <li><a href="#" class="hover:text-white transition">Contact Us</a></li>
-                    <li><a href="#" class="hover:text-white transition">Help Center</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-bold mb-6 uppercase text-sm tracking-widest">Legal</h4>
-                <ul class="space-y-4 text-white/70 text-sm">
-                    <li><a href="#" class="hover:text-white transition">Terms & Conditions</a></li>
-                    <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
-                </ul>
+            <div class="lg:col-span-7 lg:col-start-6 grid grid-cols-2 lg:grid-cols-3 gap-10">
+                <div>
+                    <h4 class="font-bold mb-6 text-sm tracking-wide text-gray50">EXPLORE</h4>
+                    <ul class="space-y-4 text-gray50 hover:[&>li>a]:text-gray50/70 text-sm">
+                        <li><a href="#" class="transition tracking-wide">Flights</a></li>
+                        <li><a href="#" class="transition tracking-wide">Hotels</a></li>
+                        <li><a href="#" class="transition tracking-wide">Activities & Tours</a></li>
+                        <li><a href="#" class="transition tracking-wide">Flight + Hotel</a></li>
+                        <li><a href="#" class="transition tracking-wide">Airport Transfers</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-6 text-sm tracking-wide text-gray50">COMPANY</h4>
+                    <ul class="space-y-4 text-gray50 hover:[&>li>a]:text-gray50/70 text-sm">
+                        <li><a href="#" class="transition tracking-wide">About Us</a></li>
+                        <li><a href="#" class="transition tracking-wide">Blog</a></li>
+                        <li><a href="#" class="transition tracking-wide">Gallery</a></li>
+                        <li><a href="#" class="transition tracking-wide">Contact Us</a></li>
+                        <li><a href="#" class="transition tracking-wide">Help Center</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-span-2 lg:col-span-1">
+                    <h4 class="font-bold mb-6 text-sm tracking-wide text-gray50">LEGAL</h4>
+                    <ul class="space-y-4 text-gray50 hover:[&>li>a]:text-gray50/70 text-sm">
+                        <li><a href="#" class="transition tracking-wide">Terms & Conditions</a></li>
+                        <li><a href="#" class="transition tracking-wide">Privacy Policy</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
 
         <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <p class="text-xs text-white/40">Copyright © 2026 Skyvela, All Rights Reserved.</p>
-            <div class="flex gap-6 text-xs text-white/60">
-                <a href="#" class="hover:text-white">Facebook</a>
-                <a href="#" class="hover:text-white">LinkedIn</a>
-                <a href="#" class="hover:text-white">Twitter</a>
-                <a href="#" class="hover:text-white">Instagram</a>
+            <p class="text-sm text-gray50">Copyright © 2026 Skyvela, All Rights Reserved.</p>
+            <div class="flex flex-wrap justify-center gap-4 text-sm text-gray50">
+                <a href="#" class="hover:text-gray50/70 transition">Facebook</a>
+                <span class="hidden md:inline">|</span>
+                <a href="#" class="hover:text-gray50/70 transition">LinkedIn</a>
+                <span class="hidden md:inline">|</span>
+                <a href="#" class="hover:text-gray50/70 transition">Twitter</a>
+                <span class="hidden md:inline">|</span>
+                <a href="#" class="hover:text-gray50/70 transition">Instagram</a>
             </div>
         </div>
     </div>
